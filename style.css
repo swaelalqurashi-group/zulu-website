@@ -1,3 +1,5 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap');
 /* General Styles */
 body {
   font-family: 'Cinzel', serif;
@@ -7,7 +9,7 @@ body {
   padding: 0;
   text-align: center;
   direction: ltr;
-  font-family: "Times New Roman", Times, serif;
+  font-family: 'Scheherazade New', serif;
 }
 /* 🔘 Language Switch (Unified Style) */
 .language-switch {
@@ -244,5 +246,6 @@ body {
     margin-top: 10px;
   }
 }
+
 
 
