@@ -7,6 +7,7 @@ body {
   padding: 0;
   text-align: center;
   direction: ltr;
+  font-family: "Times New Roman", Times, serif;
 }
 /* 🔘 Language Switch (Unified Style) */
 .language-switch {
@@ -243,4 +244,5 @@ body {
     margin-top: 10px;
   }
 }
+
 
