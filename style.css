@@ -211,3 +211,36 @@ body {
   display: block;
   margin: 0 auto 8px;
 }
+/* ===== التنسيق الأساسي (للكمبيوتر) ===== */
+body {
+  font-family: "Tajawal", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== للهواتف ===== */
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column; /* القائمة تحت بعض */
+    align-items: center;
+  }
+
+  header img.logo {
+    width: 120px; /* تصغير الشعار */
+  }
+
+  .main-text {
+    font-size: 18px; /* تصغير الخط */
+    padding: 10px;
+  }
+
+  .section {
+    padding: 20px;
+  }
+
+  .language-switch {
+    position: static;
+    margin-top: 10px;
+  }
+}
+
