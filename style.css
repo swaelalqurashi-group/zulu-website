@@ -1,21 +1,26 @@
+/* ✅ إصلاح عام يمنع الشريط الأبيض والتمدد */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
 
 /* General Styles */
 body {
-  font-family: 'Cinzel', serif;
+  font-family: "Times New Roman", Times, serif;
   background-color: #f9f7f3;
   color: #333;
-  margin: 0;
-  padding: 0;
   text-align: center;
   direction: ltr;
-  font-family: "Times New Roman", Times, serif;
-
 }
+
 /* 🔘 Language Switch (Unified Style) */
 .language-switch {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 10px; /* ↓ قليلاً لتجنب النوتش */
+  right: 10px;
   display: flex;
   gap: 10px;
   z-index: 1000;
@@ -25,9 +30,7 @@ body {
   background-color: transparent;
   border: 1px solid #bfa046;
   color: #bfa046;
-  font-family: 'Cinzel', serif;
   font-size: 16px;
-  font-weight: 600;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -38,17 +41,11 @@ body {
   transition: all 0.3s ease;
 }
 
-.lang-btn:hover {
-  background-color: #bfa046;
-  color: #1b1f14;
-}
-
+.lang-btn:hover,
 .lang-btn.active {
   background-color: #bfa046;
   color: #1b1f14;
-  border-color: #bfa046;
 }
-
 
 /* Header */
 .header {
@@ -60,6 +57,8 @@ body {
 .logo {
   width: 240px;
   margin-bottom: 10px;
+  max-width: 100%;
+  height: auto;
 }
 
 .welcome {
@@ -81,42 +80,16 @@ body {
   color: #fff;
 }
 
-/* About Section */
-.about {
-  background-color: #f9f7f3;
+/* Responsive Fix — Prevent nav from breaking layout */
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Sections General */
+.about, .gallery, .menu, .reservation, .contact {
   padding: 60px 20px;
-}
-
-.about h2 {
-  color: #1b1f14;
-  font-size: 28px;
-}
-
-.about p {
-  max-width: 700px;
-  margin: 20px auto;
-  font-size: 18px;
-  line-height: 1.7;
-  color: #444;
-}
-
-/* Gallery Section */
-.gallery {
-  background-color: #f4f2ec;
-  padding: 50px 20px;
-}
-
-.gallery h2 {
-  color: #1b1f14;
-  margin-bottom: 30px;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-  max-width: 1000px;
-  margin: auto;
 }
 
 .gallery-grid img {
@@ -124,81 +97,6 @@ body {
   height: 220px;
   object-fit: cover;
   border-radius: 10px;
-}
-
-/* Menu Section */
-.menu {
-  padding: 60px 20px;
-  background-color: #fff;
-}
-
-.menu h2 {
-  color: #1b1f14;
-  margin-bottom: 15px;
-}
-
-.menu p {
-  font-size: 18px;
-  color: #444;
-  margin-bottom: 20px;
-}
-
-/* Reservation Section */
-.reservation {
-  padding: 60px 20px;
-  background-color: #f9f7f3;
-}
-
-.reservation h2 {
-  color: #1b1f14;
-  margin-bottom: 15px;
-}
-
-.reservation p {
-  font-size: 18px;
-  color: #444;
-  margin-bottom: 25px;
-}
-
-.btn {
-  background-color: #bfa046;
-  color: white;
-  padding: 10px 25px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.btn:hover {
-  background-color: #1b1f14;
-}
-
-/* Contact Section */
-.contact {
-  background-color: #fff;
-  padding: 40px 20px;
-}
-
-.contact h2 {
-  color: #1b1f14;
-  margin-bottom: 25px;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-}
-
-.social-icons img {
-  width: 30px;
-  height: 30px;
-  transition: transform 0.3s;
-}
-
-.social-icons img:hover {
-  transform: scale(1.2);
 }
 
 /* Footer */
@@ -211,41 +109,31 @@ body {
 
 .footer-logo {
   width: 70px;
-  display: block;
   margin: 0 auto 8px;
 }
-/* ===== التنسيق الأساسي (للكمبيوتر) ===== */
-body {
-  font-family: "Tajawal", sans-serif;
-  margin: 0;
-  padding: 0;
-}
 
-/* ===== للهواتف ===== */
+/* ✅ تحسين للموبايل */
 @media (max-width: 768px) {
-  header nav {
-    flex-direction: column; /* القائمة تحت بعض */
-    align-items: center;
+  .logo {
+    width: 150px;
   }
 
-  header img.logo {
-    width: 120px; /* تصغير الشعار */
+  .welcome {
+    font-size: 26px;
+    padding: 0 10px;
   }
 
-  .main-text {
-    font-size: 18px; /* تصغير الخط */
-    padding: 10px;
-  }
-
-  .section {
-    padding: 20px;
+  .main-nav a {
+    font-size: 18px;
+    margin: 8px;
   }
 
   .language-switch {
-    position: static;
-    margin-top: 10px;
+    top: 8px;
+    right: 8px;
   }
 }
+
 
 
 
