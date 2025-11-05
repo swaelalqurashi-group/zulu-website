@@ -1,90 +1,10 @@
-/* ✅ إصلاح عام يمنع الشريط الأبيض والتمدد */
-html, body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-}
-
-/* General Styles */
-body {
-  font-family: "Times New Roman", Times, serif;
-  background-color: #f9f7f3;
-  color: #333;
-  text-align: center;
-  direction: ltr;
-  -webkit-text-size-adjust: 100%; /* ✅ منع تكبير النص في الجوال تلقائياً */
-}
-
-/* 🔘 Language Switch (Unified Style) */
-.language-switch {
-  position: fixed;
-  top: calc(env(safe-area-inset-top) + 10px); /* ✅ دعم النوتش */
-  right: 10px;
-  display: flex;
-  gap: 10px;
-  z-index: 1000;
-}
-
-/* Language Buttons */
-.lang-btn {
-  background-color: transparent;
-  border: 1px solid #bfa046;
-  color: #bfa046;
-  font-size: 16px;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: 0.3s ease;
-}
-
-.lang-btn:hover,
-.lang-btn.active {
-  background-color: #bfa046;
-  color: #1b1f14;
-}
-
-/* ✅ Header (إصلاح أعلى الشاشة للجوال) */
-.header {
-  background-color: #1b1f14;
-  color: #bfa046;
-  padding: calc(env(safe-area-inset-top) + 60px) 20px 40px;
-  width: 100%;
-  overflow: hidden;
-}
-
-/* Logo */
-.logo {
-  width: 240px;
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-/* Title */
-.welcome {
-  font-size: 36px;
-  margin: 10px 0 25px;
-  font-weight: 700;
-}
-
-/* Navigation */
-.main-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .main-nav a {
   color: #bfa046;
   margin: 0 15px;
-  font-size: 20px;
   text-decoration: none;
+  font-size: 20px;
   font-weight: 600;
   transition: color 0.3s;
 }
@@ -93,30 +13,23 @@ body {
   color: #fff;
 }
 
-/* Sections */
+/* Responsive Fix — Prevent nav from breaking layout */
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Sections General */
 .about, .gallery, .menu, .reservation, .contact {
   padding: 60px 20px;
 }
 
-/* Gallery */
 .gallery-grid img {
   width: 100%;
   height: 220px;
   object-fit: cover;
   border-radius: 10px;
-}
-
-/* ✅ Contact Section */
-.social-icons img {
-  width: 30px;
-  height: 30px;
-  max-width: 30px; /* ✅ يمنع التضخم */
-  max-height: 30px; /* ✅ يمنع التمدد */
-  transition: transform 0.3s;
-}
-
-.social-icons img:hover {
-  transform: scale(1.2);
 }
 
 /* Footer */
@@ -125,7 +38,6 @@ body {
   color: #bfa046;
   padding: 15px 0;
   font-size: 14px;
-  width: 100%;
 }
 
 .footer-logo {
@@ -133,69 +45,24 @@ body {
   margin: 0 auto 8px;
 }
 
-/* ✅ Responsive Fix */
+/* ✅ تحسين للموبايل */
 @media (max-width: 768px) {
   .logo {
     width: 150px;
   }
+
   .welcome {
     font-size: 26px;
     padding: 0 10px;
   }
+
   .main-nav a {
-    font-size: 17px;
-    margin: 7px;
+    font-size: 18px;
+    margin: 8px;
   }
+
   .language-switch {
-    top: 10px;
+    top: 8px;
+    right: 8px;
   }
 }
-
-/* ✅ ضبط حجم أيقونات التواصل بشكل ثابت */
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 18px; /* نفس المسافة الأصلية */
-}
-
-.social-icons a {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.social-icons img {
-  width: 24px !important;
-  height: 24px !important;
-  object-fit: contain;
-  max-width: 24px;
-  max-height: 24px;
-  transition: transform 0.3s;
-}
-
-.social-icons img:hover {
-  transform: scale(1.1);
-}
-
-/* ✅ للجوال — تكون أصغر بقليل */
-@media (max-width: 768px) {
-  .social-icons a {
-    width: 28px;
-    height: 28px;
-  }
-
-  .social-icons img {
-    width: 22px !important;
-    height: 22px !important;
-    max-width: 22px;
-    max-height: 22px;
-  }
-}
-
-
-
-
-
-
