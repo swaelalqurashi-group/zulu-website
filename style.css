@@ -14,31 +14,33 @@ body {
   color: #333;
   text-align: center;
   direction: ltr;
+  -webkit-text-size-adjust: 100%; /* ✅ منع تكبير النص في الجوال تلقائياً */
 }
 
 /* 🔘 Language Switch (Unified Style) */
 .language-switch {
   position: fixed;
-  top: 10px; /* ↓ قليلاً لتجنب النوتش */
+  top: calc(env(safe-area-inset-top) + 10px); /* ✅ دعم النوتش */
   right: 10px;
   display: flex;
   gap: 10px;
   z-index: 1000;
 }
 
+/* Language Buttons */
 .lang-btn {
   background-color: transparent;
   border: 1px solid #bfa046;
   color: #bfa046;
   font-size: 16px;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .lang-btn:hover,
@@ -47,31 +49,42 @@ body {
   color: #1b1f14;
 }
 
-/* Header */
+/* ✅ Header (إصلاح أعلى الشاشة للجوال) */
 .header {
   background-color: #1b1f14;
   color: #bfa046;
-  padding: 60px 20px 40px;
+  padding: calc(env(safe-area-inset-top) + 60px) 20px 40px;
+  width: 100%;
+  overflow: hidden;
 }
 
+/* Logo */
 .logo {
   width: 240px;
-  margin-bottom: 10px;
   max-width: 100%;
   height: auto;
+  margin-bottom: 10px;
 }
 
+/* Title */
 .welcome {
   font-size: 36px;
   margin: 10px 0 25px;
   font-weight: 700;
 }
 
+/* Navigation */
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .main-nav a {
   color: #bfa046;
   margin: 0 15px;
-  text-decoration: none;
   font-size: 20px;
+  text-decoration: none;
   font-weight: 600;
   transition: color 0.3s;
 }
@@ -80,23 +93,30 @@ body {
   color: #fff;
 }
 
-/* Responsive Fix — Prevent nav from breaking layout */
-.main-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* Sections General */
+/* Sections */
 .about, .gallery, .menu, .reservation, .contact {
   padding: 60px 20px;
 }
 
+/* Gallery */
 .gallery-grid img {
   width: 100%;
   height: 220px;
   object-fit: cover;
   border-radius: 10px;
+}
+
+/* ✅ Contact Section */
+.social-icons img {
+  width: 30px;
+  height: 30px;
+  max-width: 30px; /* ✅ يمنع التضخم */
+  max-height: 30px; /* ✅ يمنع التمدد */
+  transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
 }
 
 /* Footer */
@@ -105,6 +125,7 @@ body {
   color: #bfa046;
   padding: 15px 0;
   font-size: 14px;
+  width: 100%;
 }
 
 .footer-logo {
@@ -112,27 +133,24 @@ body {
   margin: 0 auto 8px;
 }
 
-/* ✅ تحسين للموبايل */
+/* ✅ Responsive Fix */
 @media (max-width: 768px) {
   .logo {
     width: 150px;
   }
-
   .welcome {
     font-size: 26px;
     padding: 0 10px;
   }
-
   .main-nav a {
-    font-size: 18px;
-    margin: 8px;
+    font-size: 17px;
+    margin: 7px;
   }
-
   .language-switch {
-    top: 8px;
-    right: 8px;
+    top: 10px;
   }
 }
+
 
 
 
